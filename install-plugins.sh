@@ -244,12 +244,15 @@ main() {
     installedPlugins="$(installedPlugins)"
 
     # Check if there's a version-specific update center, which is the case for LTS versions
+    echo "Checking if version-specific update center..."
     jenkinsVersion="$(jenkinsMajorMinorVersion)"
     if curl -fsL -o /dev/null "$JENKINS_UC/$jenkinsVersion"; then
         JENKINS_UC_LATEST="$JENKINS_UC/$jenkinsVersion"
         echo "Using version-specific update center: $JENKINS_UC_LATEST..."
     else
         JENKINS_UC_LATEST=
+        echo "No version-specific update center found"
+        echo "$JenkinsVersion"
     fi
 
     echo "Downloading plugins..."
