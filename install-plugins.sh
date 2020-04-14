@@ -252,7 +252,7 @@ main() {
     else
         JENKINS_UC_LATEST=
         echo "No version-specific update center found"
-        echo "$JenkinsVersion"
+        echo "$JENKINS_UC/$jenkinsVersion"
     fi
 
     echo "Downloading plugins..."
